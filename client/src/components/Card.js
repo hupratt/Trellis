@@ -92,15 +92,18 @@ export default function Card({ task, index }) {
                       className={classes.delete}
                       size="small"
                       onClick={() => {
-                        setCard(false)
-                        dispatch(deleteCardById(task._id))
-                        const text = `${user.username} deleted card ${task.name}`
-                        dispatch(
-                          createNewActivity(
-                            { text, boardId: task.boardId },
-                            token,
-                          ),
-                        )
+                        let answer = window.confirm('Are you sure you want to PERMANENTLY delete?')
+                        if (answer) {
+                          setCard(false)
+                          dispatch(deleteCardById(task._id))
+                          const text = `${user.username} deleted card ${task.name}`
+                          dispatch(
+                            createNewActivity(
+                              { text, boardId: task.boardId },
+                              token,
+                            ),
+                          )
+                        }
                       }}
                     >
                       <DeleteForeverIcon

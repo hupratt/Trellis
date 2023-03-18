@@ -164,15 +164,19 @@ export default function Column({ column, tasks, index }) {
                             zIndex: 100,
                           }}
                           onClick={() => {
-                            setList(false)
-                            dispatch(deleteListById(column._id))
-                            const text = `${user.username} deleted list ${column.name}`
-                            dispatch(
-                              createNewActivity(
-                                { text, boardId: column.boardId },
-                                token,
-                              ),
-                            )
+                            let answer = window.confirm('Are you sure you want to PERMANENTLY delete?');
+                            if (answer){
+
+                              setList(false)
+                              dispatch(deleteListById(column._id))
+                              const text = `${user.username} deleted list ${column.name}`
+                              dispatch(
+                                createNewActivity(
+                                  { text, boardId: column.boardId },
+                                  token,
+                                  ),
+                                  )
+                                }
                           }}
                         >
                           <DeleteIcon

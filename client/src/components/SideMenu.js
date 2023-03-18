@@ -129,8 +129,11 @@ export default function SideMenu({ setBackground, board }) {
               </Button>
               <Button
                 onClick={() => {
-                  dispatch(deleteBoardById(board.id, token))
-                  history.push('/')
+                  let answer = window.confirm('Are you sure you want to PERMANENTLY delete?')
+                  if (answer) {
+                    dispatch(deleteBoardById(board.id, token))
+                    history.push('/')
+                  }
                 }}
                 variant="contained"
                 color="secondary"
