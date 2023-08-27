@@ -17,10 +17,10 @@ ReactDOM.render(
   document.getElementById('root'),
 )
 
-if (process.env.ENVIRONMENT==='production'){
-  process.env.POSTHOG_KEY &&
-  posthog.init(process.env.POSTHOG_KEY, {
-    api_host: process.env.POSTHOG_DOMAIN,
+if (process.env.REACT_APP_ENVIRONMENT==='production'){
+  process.env.REACT_APP_POSTHOG_KEY &&
+  posthog.init(process.env.REACT_APP_POSTHOG_KEY, {
+    api_host: process.env.REACT_APP_POSTHOG_DOMAIN,
     secure_cookie: true,
     cookie_expiration: 99999999999,
   });
