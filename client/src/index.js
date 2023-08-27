@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import store from './store/configureStore'
 import AppRouter from './routers/AppRouter'
 import './index.css'
+import posthog from "posthog-js";
 
 const JSX = (
   <Provider store={store}>

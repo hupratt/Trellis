@@ -9,16 +9,12 @@
     "test": "env-cmd -f ./config/test.env jest --watch --runInBand",
     "lint": "eslint ./api ./models ./test ./*js ",
     "lint:fix": "npm run lint -- --fix",
-    "lint:all": "npm run lint && cd client && npm run lint",
     "client": "cd client && npm start",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "trellis": "concurrently \"npm run dev\" \"npm run client\"",
     "ci:build": "npm ci && cd client && npm ci",
     "start-prod": "NODE_ENV=production pm2 start index.js --name trello"
   },
-  "pre-commit": [
-    "lint:all"
-  ],
   "jest": {
     "testEnvironment": "node"
   },
@@ -39,7 +35,6 @@
     "eslint": "^6.6.0",
     "eslint-plugin-prettier": "^3.1.4",
     "nodemon": "^2.0.4",
-    "pre-commit": "^1.2.2",
     "sinon": "^9.0.2",
     "supertest": "^4.0.2"
   }
