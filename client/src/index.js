@@ -15,3 +15,12 @@ ReactDOM.render(
   <React.StrictMode>{JSX}</React.StrictMode>,
   document.getElementById('root'),
 )
+
+if (process.env.ENVIRONMENT==='production'){
+  process.env.POSTHOG_KEY &&
+  posthog.init(process.env.POSTHOG_KEY, {
+    api_host: process.env.POSTHOG_DOMAIN,
+    secure_cookie: true,
+    cookie_expiration: 99999999999,
+  });
+}
