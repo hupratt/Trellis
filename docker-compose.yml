@@ -17,7 +17,7 @@ services:
     build: .
     restart: always
     ports:
-      - "5003:5003"
+      - "1313:1313"
     volumes:
       - ./:/backend
       - ./node_modules:/backend/node_modules
