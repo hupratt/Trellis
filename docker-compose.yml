@@ -1,0 +1,29 @@
+volumes:
+  pg_data_youtubeclone:
+
+networks:
+  trello-network:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 172.197.0.0/16
+    driver_opts:
+      com.docker.network.bridge.name: br_trello
+
+services:
+  backend:
+    container_name: trello
+    build: .
+    restart: always
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./:/backend
+      - ./node_modules:/backend/node_modules
+    env_file: 
+      - .env
+    networks:
+      - trello-network
+    # environment:
+    #   DEBUG: 'true'
