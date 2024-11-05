@@ -31,6 +31,7 @@ const corsOption = {
 }
 
 app.use(cors(corsOption));
+app.options('*', cors());  // enable pre-flight
 
 app.use(express.json())
 app.use('/api/user/', userHandler)
