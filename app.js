@@ -20,21 +20,17 @@ mongoose.connect(process.env.DATABASE_URL, {
     useCreateIndex: true
 })
 
+
+
+//app.use(morgan('tiny'))
+//app.use(helmet())
+
 const corsOption = {
     optionsSuccessStatus: 200,
     origin: ['https://posthog.thekor.eu']
 }
 
 app.use(cors(corsOption));
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
-app.use(morgan('tiny'))
-app.use(helmet())
 
 app.use(express.json())
 app.use('/api/user/', userHandler)
