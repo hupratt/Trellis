@@ -37,7 +37,7 @@ const corsOption = {
     origin: ['https://posthog.thekor.eu']
 }
 
-app.use(cors(corsOption));
+app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
