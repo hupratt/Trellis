@@ -9,7 +9,7 @@ const listHandler = require('./api/listHandler')
 const cardHandler = require('./api/cardHandler')
 const userHandler = require('./api/userHandler')
 const activityHandler = require('./api/activityHandler')
-import cors from 'cors'
+const cors = require('cors')
 
 const app = express()
 
