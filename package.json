@@ -28,7 +28,8 @@
     "helmet": "^3.23.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.24",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "cors": "^2.8.5"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",

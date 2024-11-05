@@ -9,6 +9,7 @@ const listHandler = require('./api/listHandler')
 const cardHandler = require('./api/cardHandler')
 const userHandler = require('./api/userHandler')
 const activityHandler = require('./api/activityHandler')
+import cors from 'cors'
 
 const app = express()
 
@@ -30,6 +31,13 @@ app.use('/api/lists/', listHandler)
 app.use('/api/cards/', cardHandler)
 app.use('/api/activities/', activityHandler)
 app.use(errorHandler)
+
+const corsOption = {
+    optionsSuccessStatus: 200,
+    origin: ['https://posthog.thekor.eu']
+}
+
+app.use(cors(corsOption));
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
