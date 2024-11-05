@@ -27,7 +27,7 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 const corsOption = {
     optionsSuccessStatus: 200,
-    origin: ['https://posthog.thekor.eu']
+    origin: ['https://posthog.thekor.eu','posthog.thekor.eu']
 }
 
 app.use(cors(corsOption));
