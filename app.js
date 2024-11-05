@@ -20,6 +20,12 @@ mongoose.connect(process.env.DATABASE_URL, {
     useCreateIndex: true
 })
 
+const corsOption = {
+    optionsSuccessStatus: 200,
+    origin: ['https://posthog.thekor.eu']
+}
+
+app.use(cors(corsOption));
 
 app.use(morgan('tiny'))
 app.use(helmet())
@@ -31,13 +37,6 @@ app.use('/api/lists/', listHandler)
 app.use('/api/cards/', cardHandler)
 app.use('/api/activities/', activityHandler)
 app.use(errorHandler)
-
-const corsOption = {
-    optionsSuccessStatus: 200,
-    origin: ['https://posthog.thekor.eu']
-}
-
-app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
